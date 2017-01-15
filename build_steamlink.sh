@@ -50,7 +50,7 @@ else
 	echo "Skipping BASS installation. Provide your own games via USB or SCP."
 fi
 	
-
+armv7a-cros-linux-gnueabi-strip scummvm
 cp -v scummvm "${DESTDIR}"
 
 cat >"${DESTDIR}/toc.txt" <<__EOF__
@@ -60,7 +60,7 @@ run=scummvm.sh
 __EOF__
 
 cat >"${DESTDIR}/scummvm.sh" <<__EOF__
-#!bin/sh
+#!/bin/sh
 ./scummvm --joystick=0
 __EOF__
 
