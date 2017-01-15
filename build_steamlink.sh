@@ -60,7 +60,7 @@ run=scummvm.sh
 __EOF__
 
 cat >"${DESTDIR}/scummvm.sh" <<__EOF__
-#!bin/bash
+#!bin/sh
 ./scummvm --joystick=0
 __EOF__
 
