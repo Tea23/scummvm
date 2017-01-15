@@ -8,8 +8,8 @@ built into ScummVM, but the Steam Controller isn't working as it should with the
 You need the Steam Link SDK in order to build this. Clone https://github.com/ValveSoftware/steamlink-sdk (it's over 3GB and takes a while!)
 and run `source setenv.sh` while in the SDK root directory. Then enter the ScummVM source tree and run `./build_steamlink.sh`.
 
-To install, place `scummvm.tgz` onto a FAT32 formatted USB disk in `steamlink/apps/scummvm`. Place the USB disk into your Steam Link, unplug it
-and plug it back in. This copies the app to the filesystem on the Steam Link so you can trash the disk afterwards if you like.
+To install, place `scummvm.tgz` onto a FAT32 formatted USB disk in `steamlink/apps/scummvm`. Place the USB disk into your Steam Link, unplug the power cable from the Link 
+and then plug it back in. This copies the app to the filesystem on the Steam Link so you can trash the disk afterwards if you like.
 
 Alternatively you can enable SSH on the Steam Link (see the SDK documentation) and scp it (uncompressed) directly to /home/apps/scummvm.
 
