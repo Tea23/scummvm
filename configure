@@ -2825,12 +2825,9 @@ if test -n "$_host"; then
 			_opengl_mode=gles2
 			;;
 		steamlink)
-				append_var LDFLAGS "--sysroot=$MARVELL_ROOTFS"
-				#append_var LDFLAGS "-Xlinker --rpath-link=$MARVELL_ROOTFS/usr/arm-unknown-linux-gnueabi"
 				append_var DEFINES "-DEGL_API_FB"
+				append_var CXXFLAGS "-mfpu=neon"
 				append_var CXXFLAGS "-march=armv7-a"
-				_opengl_mode=any
-				_sdlconfig=sdl2-config
 			;;
 		dreamcast)
 			append_var DEFINES "-DDISABLE_DEFAULT_SAVEFILEMANAGER"
