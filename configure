@@ -157,7 +157,7 @@ _debug_build=auto
 _release_build=auto
 _optimizations=auto
 _use_cxx11=no
-_verbose_build=no
+_verbose_build=yes
 _text_console=no
 _mt32emu=yes
 _build_scalers=yes
@@ -1599,6 +1599,11 @@ wince)
 	_host_cpu=arm
 	_host_alias=arm-mingw32ce
 	;;
+steamlink)
+	_host_os=linux
+	_host_cpu=arm
+	_host_alias=armv7a-cros-linux-gnueabi
+	;;
 *)
 	if test -n "$_host"; then
 		guessed_host=`$_srcdir/config.sub $_host`
@@ -2818,6 +2823,14 @@ if test -n "$_host"; then
 			# The Raspberry Pi always supports OpenGL ES 2.0 contexts, thus we
 			# take advantage of those.
 			_opengl_mode=gles2
+			;;
+		steamlink)
+				append_var LDFLAGS "--sysroot=$MARVELL_ROOTFS"
+				#append_var LDFLAGS "-Xlinker --rpath-link=$MARVELL_ROOTFS/usr/arm-unknown-linux-gnueabi"
+				append_var DEFINES "-DEGL_API_FB"
+				append_var CXXFLAGS "-march=armv7-a"
+				_opengl_mode=any
+				_sdlconfig=sdl2-config
 			;;
 		dreamcast)
 			append_var DEFINES "-DDISABLE_DEFAULT_SAVEFILEMANAGER"
