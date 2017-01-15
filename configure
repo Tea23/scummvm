@@ -2826,6 +2826,7 @@ if test -n "$_host"; then
 			;;
 		steamlink)
 				append_var DEFINES "-DEGL_API_FB"
+				append_var INCLUDES "-I$MARVELL_ROOTFS/usr/include/SDL2"
 				append_var CXXFLAGS "-mfpu=neon"
 				append_var CXXFLAGS "-march=armv7-a"
 			;;
